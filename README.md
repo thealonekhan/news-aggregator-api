@@ -103,19 +103,10 @@ curl -X POST http://127.0.0.1:8000/api/articles \
 ```
 
 ## Automatic News Updates (Laravel Scheduler)
-The application will fetch new articles every hour using Laravel’s scheduler.
+The application will fetch new articles every minute using Laravel’s scheduler.
 
-### **1 Add the Cron Job in Laravel 11**
-Open routes/console.php and add this code below the existing commands:
-```sh
-use Illuminate\Support\Facades\Schedule;
-use App\Services\NewsService;
-
-Schedule::call(function () {
-    app(NewsService::class)->fetchNews();
-})->everyMinute();
 ```
-### **2 Set Up the System Cron Job**
+### **1 Set Up the System Cron Job**
 To ensure Laravel’s scheduler runs, add this cron job:
 ```sh
 crontab -e
@@ -128,7 +119,7 @@ Then add this line at the bottom:
 Replace **/path/to/your-project/** with the actual path to your Laravel application.
 This runs **every minute**, allowing Laravel to trigger scheduled tasks.
 
-### **3 Test the Scheduler**
+### **2 Test the Scheduler**
 Run this command to manually trigger the cron job and verify that it works:
 ```sh
 php artisan schedule:run
