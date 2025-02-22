@@ -18,10 +18,12 @@ class ArticleRepository
     {
         $query = Article::query();
 
-        if (!empty($filters['search'])) {
-            $query->where('title', 'LIKE', "%{$filters['search']}%")
-                ->orWhere('content', 'LIKE', "%{$filters['search']}%");
-        }
+        $query->when(!empty($filters['search']), function ($q) use ($filters) {
+            $q->where(function ($subQuery) use ($filters) {
+                $subQuery->where('title', 'LIKE', "%{$filters['search']}%")
+                         ->orWhere('content', 'LIKE', "%{$filters['search']}%");
+            });
+        });
 
         if (!empty($filters['category'])) {
             $query->where('category', $filters['category']);
