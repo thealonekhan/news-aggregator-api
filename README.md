@@ -135,6 +135,53 @@ php artisan schedule:run
 ```
 If successful, it will fetch new articles and store them in the database.
 
+---
+
+## Running Unit Tests
+
+This project includes **automated tests** using Laravel's **PHPUnit** framework.
+
+### ** Setup for Testing**
+Before running tests, ensure your `.env.testing` file is set up:
+
+**1 Create a separate test database:**
+```sh
+mysql -u root -p
+CREATE DATABASE news_aggregator_test;
+EXIT;
+```
+**2 Ensure .env.testing is configured correctly:**
+```sh
+DB_CONNECTION=mysql
+DB_DATABASE=news_aggregator_test
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+```
+
+**3 Ensure .env.testing is configured correctly:**
+```sh
+php artisan migrate --env=testing
+```
+## Running Tests
+To execute unit and feature tests, use the following command:
+```sh
+php artisan test
+```
+Alternatively, you can use PHPUnit directly:
+```sh
+vendor/bin/phpunit
+```
+Expected Output (If Tests Pass)
+```sh
+   PASS  Tests\Feature\ArticleTest
+  ✓ it fetches articles successfully
+  ✓ it filters articles by category
+
+  Tests: 2 passed (2 assertions)
+```
+
+
+
 
 ## Contributing
 Pull requests are welcome. Please follow PSR-4 coding standards.

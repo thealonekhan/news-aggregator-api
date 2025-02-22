@@ -16,12 +16,28 @@ class ArticleController extends Controller
     protected $articleRepository;
     protected $newsService;
 
+    /**
+     * ArticleController Constructor
+     *
+     * Initializes the controller with necessary dependencies.
+     *
+     * @param ArticleRepository $articleRepository Handles database operations for articles.
+     * @param NewsService $newsService Fetches news articles from external APIs.
+     */
     public function __construct(ArticleRepository $articleRepository, NewsService $newsService)
     {
         $this->articleRepository = $articleRepository;
         $this->newsService = $newsService;
     }
 
+    /**
+     * Fetch and store the latest news articles from external sources.
+     *
+     * This method triggers the NewsService to fetch articles from APIs
+     * (e.g., NewsAPI, The Guardian, NYT) and store them in the database.
+     *
+     * @return JsonResponse Returns a JSON response indicating success or failure.
+     */
     public function fetchArticles(): JsonResponse
     {
         try {
@@ -32,6 +48,16 @@ class ArticleController extends Controller
         }
     }
 
+    /**
+     * Retrieve filtered articles based on user queries.
+     *
+     * This method fetches articles from the database based on filters such as 
+     * search query, category, source, author, and date. The results are paginated.
+     *
+     * @param GetArticlesRequest $request The validated request containing filter parameters.
+     * 
+     * @return JsonResponse Returns a JSON response with paginated articles and metadata.
+     */
     public function getArticles(GetArticlesRequest $request): JsonResponse
     {
         try {
