@@ -19,8 +19,8 @@ This is a **Laravel 11** backend application that aggregates news articles from 
 
 ### **1️ Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/news-aggregator.git
-cd news-aggregator
+git https://github.com/thealonekhan/news-aggregator-api.git
+cd news-aggregator-api
 ```
 ### **2 Install Dependencies**
 ```sh
