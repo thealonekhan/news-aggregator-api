@@ -9,7 +9,7 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-
+// Schedule a task to fetch news articles every minute
 Schedule::call(function () {
     app(NewsService::class)->fetchNews();
 })->everyMinute();
