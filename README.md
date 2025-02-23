@@ -190,7 +190,7 @@ Make sure you have **Docker** and **Docker Compose** installed:
 **1 Clone the repository (if not already done)**  
 ```sh
 git clone https://github.com/thealonekhan/news-aggregator-api.git
-cd news-aggregator
+cd news-aggregator-api
 ```
 **2 Copy the .env file and configure database settings**  
 ```sh
