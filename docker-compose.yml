@@ -13,7 +13,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8000:80" # Apache listens on port 80
+      - "8000:80"
     environment:
       - APP_ENV=local
       - APP_DEBUG=true
