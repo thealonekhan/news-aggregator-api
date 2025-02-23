@@ -171,8 +171,72 @@ Expected Output (If Tests Pass)
   Tests: 2 passed (2 assertions)
 ```
 
+---
 
+## Docker Setup
 
+This project is fully **Dockerized** using **Apache, MySQL, and PHP 8.2**.  
+Follow these steps to run the Laravel API inside Docker.
+
+---
+
+### ** Prerequisites**
+Make sure you have **Docker** and **Docker Compose** installed:  
+- [Download Docker](https://www.docker.com/get-started)
+
+---
+
+### ** Setup and Run Containers**
+**1 Clone the repository (if not already done)**  
+```sh
+git clone https://github.com/thealonekhan/news-aggregator-api.git
+cd news-aggregator
+```
+**2 Copy the .env file and configure database settings**  
+```sh
+cp .env.example .env
+```
+• Modify .env to use Docker’s MySQL container:
+```sh
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=news_aggregators
+DB_USERNAME=username
+DB_PASSWORD=password
+```
+
+**3 Build and start the Docker containers**  
+```sh
+docker-compose up -d --build
+```
+This will start:
+• PHP 8.2 + Apache (laravel_app)
+• MySQL 8.0 (laravel_db)
+
+**4 Run database migrations inside the container**  
+```sh
+docker exec -it laravel_app bash
+php artisan migrate --seed
+php artisan storage:link
+exit
+```
+
+**Access the Application**
+• Open http://localhost:8000 in your browser to access the Laravel API.
+
+---
+
+**Managing Docker Containers**
+• Check running containers:
+```sh
+docker ps
+```
+• Stop the containers:
+```sh
+docker-compose down
+```
+Now, your Laravel API is running inside Docker with Apache & MySQL!
 
 ## Contributing
 Pull requests are welcome. Please follow PSR-4 coding standards.
