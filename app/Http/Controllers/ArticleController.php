@@ -38,7 +38,7 @@ class ArticleController extends Controller
      *
      * @return JsonResponse Returns a JSON response indicating success or failure.
      */
-    public function fetchArticles(): JsonResponse
+    public function syncArticles(): JsonResponse
     {
         try {
             $this->newsService->fetchNews();

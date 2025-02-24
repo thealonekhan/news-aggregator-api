@@ -9,4 +9,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::post('/articles', [ArticleController::class, 'getArticles']);
-Route::get('/fetch-articles', [ArticleController::class, 'fetchArticles']);
+Route::get('/sync-articles', [ArticleController::class, 'syncArticles']);

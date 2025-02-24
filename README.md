@@ -46,14 +46,21 @@ NYT_KEY=your_nyt_api_key
 ```sh
 php artisan migrate
 ```
-### **5 Generate API Docs**
-```sh
-php artisan scribe:generate
-```
-Now visit:
-```sh
-http://127.0.0.1:8000/docs
-```
+## **5. API Documentation (Postman)**  
+
+### ** View API Documentation (Online)**
+The full API documentation is available at:  
+🔗 **[Postman API Docs](https://documenter.getpostman.com/view/21436431/2sAYdcssia#ef3458bf-ee3e-4cd5-95a3-6f8abe9c399d)**  
+
+### ** Import API Collection in Postman**  
+You can import the Postman Collection manually:  
+1. Download the collection from this repo:  
+   **[`/apiDocs/news-aggregator-api.postman_collection.json`](./apiDocs/news-aggregator-api.postman_collection.json)**
+2. Open **Postman → Import**  
+3. Select the downloaded JSON file  
+4. Start testing the APIs!
+
+---
 ### **6 Start Laravel Server**
 ```sh
 php artisan serve
@@ -61,9 +68,9 @@ php artisan serve
 
 ## API Usage
 
-## Fetch & Store News Manually
+## Download & Store News Manually
 ```sh
-curl -X GET http://127.0.0.1:8000/api/fetch-articles
+curl -X GET http://127.0.0.1:8000/api/sync-articles
 ```
 
 ## Retrieve Articles (POST)
