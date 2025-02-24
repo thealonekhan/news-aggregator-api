@@ -209,8 +209,8 @@ DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
 DB_DATABASE=news_aggregators
-DB_USERNAME=username
-DB_PASSWORD=password
+DB_USERNAME=laravel
+DB_PASSWORD=1234
 ```
 
 **3 Build and start the Docker containers**  
