@@ -55,7 +55,7 @@ The full API documentation is available at:
 ### ** Import API Collection in Postman**  
 You can import the Postman Collection manually:  
 1. Download the collection from this repo:  
-   **[`/apiDocs/news-aggregator-api.postman_collection.json`](./apiDocs/news-aggregator-api.postman_collection.json)**
+   **[`/apiDocs/News_Aggregator_API.postman_collection.json`](./apiDocs/News_Aggregator_API.postman_collection.json)**
 2. Open **Postman → Import**  
 3. Select the downloaded JSON file  
 4. Start testing the APIs!
